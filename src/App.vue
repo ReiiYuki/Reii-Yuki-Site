@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <img src="./assets/logo.png">
-    <h1>{{ msg }}</h1>
+    <h1>{{ name[0]['.value'] }}</h1>
     <h2>Essential Links</h2>
     <ul>
       <li><a href="https://vuejs.org" target="_blank">Core Docs</a></li>
@@ -20,13 +20,16 @@
 </template>
 
 <script>
+import firebaseDatabase from './firebase/Firebase'
 export default {
   name: 'app',
+  firebase : {
+    name: firebaseDatabase.ref()
+  },
   data () {
     return {
-      msg: 'Welcome to Yuki Reii Site'
     }
-  }
+  },
 }
 </script>
 
