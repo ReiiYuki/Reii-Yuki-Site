@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
-
+import Nav from '../nav/Nav'
+import '../../../assets/scss/Body.scss'
 export default class App extends Component {
   render() {
     return (
       <div>
-        {this.props.children}
+        <Nav/>
+        <div className="behind">
+          {this.props.children}
+        </div>
       </div>
     )
   }
