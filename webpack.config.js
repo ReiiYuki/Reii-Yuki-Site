@@ -1,65 +1,32 @@
-var path = require('path')
-var webpack = require('webpack')
-
+const webpack = require("webpack");
+const path = require("path");
+const autoprefixer = require('autoprefixer');
+if (global.Promise == null) {
+  global.Promise = require('es6-promise')
+}
 module.exports = {
-  entry: './src/main.js',
+  devtool: 'source-map',
+  entry: [
+    './src/app/index.js'
+  ],
   output: {
-    path: path.resolve(__dirname, './dist'),
-    publicPath: '/dist/',
-    filename: 'build.js'
+    publicPath: "/dist/js/",
+    path: path.join(__dirname, "dist/js"),
+    filename: "bundle.js"
   },
   module: {
-    rules: [
-      {
-        test: /\.vue$/,
-        loader: 'vue',
-        options: {
-          // vue-loader options go here
-        }
-      },
-      {
-        test: /\.js$/,
-        loader: 'babel',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(png|jpg|gif|svg)$/,
-        loader: 'file',
-        options: {
-          name: '[name].[ext]?[hash]'
-        }
-      },
-      { test: /\.json$/, loader: 'json' }
+    loaders:[
+      {test: /\.js$/,loaders: ['babel?cacheDirectory'],exclude: /(node_modules|bower_components)/,},
+      { test: /\.css$/, loader: 'style-loader!css-loader' },
+      { test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: "file" },
+      { test: /\.(woff|woff2)$/, loader:"url?prefix=font/&limit=5000" },
+      { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
+      { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
+      { test: /\.json$/, loader: 'json-loader'},
+      {test: /\.scss$/,loaders: ['style', 'css', 'sass','postcss']}
     ]
   },
-  resolve: {
-    alias: {
-      'vue$': 'vue/dist/vue'
-    }
-  },
-  devServer: {
-    historyApiFallback: true,
-    noInfo: true
-  },
-  devtool: '#eval-source-map'
-}
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports.devtool = '#source-map'
-  // http://vue-loader.vuejs.org/en/workflow/production.html
-  module.exports.plugins = (module.exports.plugins || []).concat([
-    new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    }),
-    new webpack.optimize.UglifyJsPlugin({
-      compress: {
-        warnings: false
-      }
-    }),
-    new webpack.LoaderOptionsPlugin({
-      minimize: true
-    })
-  ])
+  postcss:function () {
+    return [autoprefixer];
+  }
 }
