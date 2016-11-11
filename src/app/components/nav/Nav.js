@@ -8,16 +8,16 @@ export default class Nav extends Component {
   render() {
     return (
       <nav className="transparent z-depth-0 over">
-        <div className="nav-wrapper">
+        <div className="nav-wrapper condensed light">
           <a href="#" data-activates="mobile-nav" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul className="right hide-on-med-and-down">
-            <li><a href="#">Intro</a></li>
+            <li><a href="#intro">Intro</a></li>
             <li><a href="#skill">Skill</a></li>
             <li><a href="#project">Project</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
           <ul className="side-nav" id="mobile-nav">
-            <li><a href="#">Intro</a></li>
+            <li><a href="#intro">Intro</a></li>
             <li><a href="#skill">Skill</a></li>
             <li><a href="#project">Project</a></li>
             <li><a href="#contact">Contact</a></li>
