@@ -7,23 +7,7 @@ export default class Home extends Component {
     return (
       <div>
         <Introduction/>
-        <Row id="skill">
-          <div className="container white">
-            <h1>AAAA</h1>
-            <h1>AAAA</h1>
-
-            <h1>AAAA</h1>
-            <h1>AAAA</h1>
-
-            <h1>AAAA</h1>
-
-            <h1>AAAA</h1>
-
-            <h1>AAAA</h1>
-            <h1>AAAA</h1>
-
-          </div>
-        </Row>
+        
       </div>
     )
   }
