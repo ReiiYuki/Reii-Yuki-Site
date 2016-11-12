@@ -8,6 +8,7 @@ export default class Home extends Component {
           <ParallaxSession
             id="intro"
             img="dist/medias/images/dummy1.png"
+            height = "500px"
           >
             <div className="white-text">
               <h3 className="condensed light">Hello Visitor!</h3>

@@ -5,8 +5,11 @@ export default class ParallaxSession extends Component {
     $('.parallax').parallax()
   }
   render() {
+    let height = {
+      height : this.props.height
+    }
     return (
-      <div className="parallax-container">
+      <div className="parallax-container" style={height}>
         <div className="container middle">
           {this.props.children}
         </div>
