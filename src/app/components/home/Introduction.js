@@ -23,12 +23,14 @@ export default class Home extends Component {
             title="How good am I?"
             left={
               <div>
+                <i className="mdi mdi-github-circle mdi-dark mdi-48px"></i>
                 <h4 className="condensed light">Active</h4>
                 <p className="condensed"><span className="light">More than </span>thousand countributions<span className="light"> and More than </span>25 respositories<span className="light"> (including collaborating respositories) on Github in this year</span></p>
               </div>
             }
             center={
               <div>
+                <i className="mdi mdi-code-braces mdi-dark mdi-48px"></i>
                 <h4 className="condensed light">Experience</h4>
                 <p className="condensed light">
                   I have experience in many programming language and many framework since 2014 such as Java , Python , C# , Prolog , C++ , Javascript , Android , React , Django , Cocos2d-X , ETC.
@@ -37,9 +39,10 @@ export default class Home extends Component {
             }
             right={
               <div>
+                <i className="mdi mdi-book-open-page-variant mdi-dark mdi-48px"></i>
                 <h4 className="condensed light">Learner</h4>
                 <p className="condensed light">
-                  I love to learn new thing or the thing that I didn't know before such as Vue.js 2 which release in this year.
+                  I love to learn new thing or the thing that I didn't know before from content or course like Udemy or Codeacademy by doing it.
                 </p>
               </div>
             }
