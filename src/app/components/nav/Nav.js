@@ -16,11 +16,11 @@ export default class Nav extends Component {
             <li><a href="#project">Project</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
-          <ul className="side-nav" id="mobile-nav">
-            <li><a href="#intro">Intro</a></li>
-            <li><a href="#skill">Skill</a></li>
-            <li><a href="#project">Project</a></li>
-            <li><a href="#contact">Contact</a></li>
+          <ul className="side-nav  light-blue darken-4" id="mobile-nav">
+            <li><a className="white-text" href="#intro">Intro</a></li>
+            <li><a className="white-text" href="#skill">Skill</a></li>
+            <li><a className="white-text" href="#project">Project</a></li>
+            <li><a className="white-text" href="#contact">Contact</a></li>
           </ul>
         </div>
       </nav>
