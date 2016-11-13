@@ -68,46 +68,6 @@ export default class Home extends Component {
                   value={0.85}
                 />
               </Col>
-              <Col m={3}>
-                <HalfCircleProgressItem
-                  id = "cpp"
-                  textColor=" indigo-text lighten-1"
-                  color = "#9575cd"
-                  name="C++"
-                  rank="Average"
-                  value={0.4}
-                />
-              </Col>
-              <Col m={3}>
-                <HalfCircleProgressItem
-                  id = "cs"
-                  textColor=" blue-text"
-                  color = "#42a5f5"
-                  name="C#"
-                  rank="Elementary"
-                  value={0.25}
-                />
-              </Col>
-              <Col  m={3}>
-                <HalfCircleProgressItem
-                  id = "prolog"
-                  textColor=" orange-text"
-                  color = "#ffb74d"
-                  name="Prolog"
-                  rank="Elementary"
-                  value={0.3}
-                />
-              </Col>
-              <Col m={3}>
-                <HalfCircleProgressItem
-                  id = "js"
-                  textColor=" yellow-text"
-                  color = "#fff176"
-                  name="Javascript"
-                  rank="Average"
-                  value={0.5}
-                />
-              </Col>
               <Col  m={3}>
                 <HalfCircleProgressItem
                   id = "android"
@@ -128,7 +88,46 @@ export default class Home extends Component {
                   value={0.75}
                 />
               </Col>
-
+              <Col  m={3}>
+                <HalfCircleProgressItem
+                  id = "cocos"
+                  textColor=" blue-text"
+                  color = "#90caf9"
+                  name="Cocos2d-X (JS)"
+                  rank="Rarely"
+                  value={0.3}
+                />
+              </Col>
+              <Col  m={3}>
+                <HalfCircleProgressItem
+                  id = "django"
+                  textColor=" amber-text"
+                  color = "#ffd54f"
+                  name="Django"
+                  rank="Average"
+                  value={0.5}
+                />
+              </Col>
+              <Col  m={3}>
+                <HalfCircleProgressItem
+                  id = "node"
+                  textColor="light-green-text accent-3"
+                  color = "#b2ff59"
+                  name="Node.js"
+                  rank="Rarely"
+                  value={0.4}
+                />
+              </Col>
+              <Col  m={3}>
+                <HalfCircleProgressItem
+                  id = "unity"
+                  textColor=" blue-text"
+                  color = "#90caf9"
+                  name="Unity3D"
+                  rank="Elementary"
+                  value={0.2}
+                />
+              </Col>
             </Row>
           </div>
         </ParallaxSession>

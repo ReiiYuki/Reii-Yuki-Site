@@ -5,6 +5,9 @@ export default class Nav extends Component {
   componentDidMount(){
     $(".button-collapse").sideNav()
   }
+  onClick(){
+    $('.button-collapse').sideNav('hide');
+  }
   render() {
     return (
       <nav className="transparent z-depth-0 over">
@@ -17,10 +20,10 @@ export default class Nav extends Component {
             <li><a href="#contact">Contact</a></li>
           </ul>
           <ul className="side-nav  light-blue darken-4" id="mobile-nav">
-            <li><a className="white-text" href="#intro">Intro</a></li>
-            <li><a className="white-text" href="#skill">Skill</a></li>
-            <li><a className="white-text" href="#project">Project</a></li>
-            <li><a className="white-text" href="#contact">Contact</a></li>
+            <li><a className="white-text" href="#intro" onClick={()=>this.onClick()}>Intro</a></li>
+            <li><a className="white-text" href="#skill" onClick={()=>this.onClick()}>Skill</a></li>
+            <li><a className="white-text" href="#project" onClick={()=>this.onClick()}>Project</a></li>
+            <li><a className="white-text" href="#contact" onClick={()=>this.onClick()}>Contact</a></li>
           </ul>
         </div>
       </nav>
