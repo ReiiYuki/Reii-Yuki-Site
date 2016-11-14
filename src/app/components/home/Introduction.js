@@ -17,6 +17,7 @@ export default class Home extends Component {
               <h5 className="condensed light">
                 3yr Software and Knowledge Engineering Student <span className="light-green-text">@Kasetsart University</span>
               </h5>
+              <h5 className="condensed light">I interest in Game Development, Web Development, Artificial Intelligent and Android Development</h5>
             </div>
           </ParallaxSession>
           <TriSection
