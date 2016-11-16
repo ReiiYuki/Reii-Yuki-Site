@@ -7,7 +7,7 @@ export default class Home extends Component {
       <div id="skill">
         <ParallaxSession
           id="intro"
-          img="dist/medias/images/dummy1.png"
+          img="dist/medias/images/skill-bg.jpg"
           height="1000px"
         >
           <div className="white-text">

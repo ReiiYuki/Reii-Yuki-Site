@@ -1,7 +1,26 @@
 import React, { Component } from 'react'
+import {readDB} from '../../connector/mongodb'
 import '../../../assets/scss/Nav.scss'
 export default class Nav extends Component {
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
+  readDataFromDB(){
+    readDB('contact_infomation',this.setContactState,this)
+  }
+  setContactState(self,data){
+    let info = data[0]
+    self.setState({
+      github:info['github'],
+      facebook:info['facebook'],
+      email:info['email'],
+      twitter:info['twitter'],
+      phone_number:info['phone_number']
+    })
+  }
   componentDidMount(){
+    this.readDataFromDB()
     $(".button-collapse").sideNav()
   }
   onClick(){
@@ -14,10 +33,10 @@ export default class Nav extends Component {
           <a href="#" data-activates="mobile-nav" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul className="hide-on-med-and-down">
             <div className="left">
-              <li><a href="https://www.facebook.com/shou.iguru"><i className="mdi mdi-facebook-box mdi-32px"></i></a></li>
-              <li><a href="https://github.com/ReiiYuki"><i className="mdi mdi-github-circle mdi-32px"></i></a></li>
-              <li><a href="https://twitter.com/EagleLight96"><i className="mdi mdi-twitter mdi-32px"></i></a></li>
-              <li><a href="mailto:iguru.shou.5410070@gmail.com"><i className="mdi mdi-gmail mdi-32px"></i></a></li>
+              <li><a href={this.state.facebook}><i className="mdi mdi-facebook-box mdi-32px"></i></a></li>
+              <li><a href={this.state.github}><i className="mdi mdi-github-circle mdi-32px"></i></a></li>
+              <li><a href={this.state.twitter}><i className="mdi mdi-twitter mdi-32px"></i></a></li>
+              <li><a href={"mailto:"+this.state.email}><i className="mdi mdi-gmail mdi-32px"></i></a></li>
             </div>
             <div className="right">
               <li><a href="#intro">Intro</a></li>
@@ -29,10 +48,10 @@ export default class Nav extends Component {
           <ul className="side-nav  light-blue darken-4" id="mobile-nav">
             <li >
               <ul className="row center inline-ul">
-                <li className="inline"><a href="https://www.facebook.com/shou.iguru"><i className="mdi mdi-facebook-box  mdi-light mdi-32px"></i></a></li>
-                <li className="inline"><a href="https://github.com/ReiiYuki"><i className="mdi mdi-github-circle mdi-light mdi-32px"></i></a></li>
-                <li className="inline"><a href="https://twitter.com/EagleLight96"><i className="mdi mdi-twitter mdi-light  mdi-32px"></i></a></li>
-                <li className="inline"><a href="mailto:iguru.shou.5410070@gmail.com"><i className="mdi mdi-gmail  mdi-light  mdi-32px"></i></a></li>
+                <li className="inline"><a href={this.state.facebook}><i className="mdi mdi-facebook-box  mdi-light mdi-32px"></i></a></li>
+                <li className="inline"><a href={this.state.github}><i className="mdi mdi-github-circle mdi-light mdi-32px"></i></a></li>
+                <li className="inline"><a href={this.state.twitter}><i className="mdi mdi-twitter mdi-light  mdi-32px"></i></a></li>
+                <li className="inline"><a href={"mailto:"+this.state.email}><i className="mdi mdi-gmail  mdi-light  mdi-32px"></i></a></li>
               </ul>
             </li>
             <li><a className="white-text" href="#intro" onClick={()=>this.onClick()}>Intro</a></li>

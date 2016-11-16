@@ -8,9 +8,23 @@ export default class Home extends Component {
   }
   readDataFromDB(){
     readDB('personal_infomation',this.setUserState,this)
+    readDB('introduction',this.setInterestState,this)
   }
   setUserState(self,data){
-    self.setState(data[0])
+    let info = data[0]
+    self.setState({
+      name:info['name'],
+      real_name:info['real_name'],
+      position:info['position'],
+      workplace:info['workplace'],
+      label:info['label']
+    })
+  }
+  setInterestState(self,data){
+    self.setState({
+      interest:data[0]['interest'],
+      good_thing:data.slice(1)
+    })
   }
   componentDidMount(){
     this.readDataFromDB()
@@ -31,7 +45,7 @@ export default class Home extends Component {
               <h5 className="condensed light">
                 {this.state.position} <span className={this.state.label}>@{this.state.workplace}</span>
               </h5>
-              <h5 className="condensed light">I interest in Game Development, Web Development, Artificial Intelligent and Android Development</h5>
+              <h5 className="condensed light">{this.state.interest}</h5>
             </div>
           </ParallaxSession>
           <TriSection
@@ -40,27 +54,38 @@ export default class Home extends Component {
             textColor = "white-text"
             left={
               <div>
-                <i className="mdi mdi-github-circle mdi-48px"></i>
-                <h4 className="condensed light">Active</h4>
-                <p className="condensed"><span className="light">More than </span>thousand countributions<span className="light"> and More than </span>25 respositories<span className="light"> (including collaborating respositories) on Github in this year</span></p>
+                {this.state.good_thing?
+                  <div>
+                    <i className={"mdi "+this.state.good_thing[0]['icon']+" mdi-48px"}></i>
+                    <h4 className="condensed light">{this.state.good_thing[0]['title']}</h4>
+                    <p className="condensed" dangerouslySetInnerHTML={{__html:this.state.good_thing[0]['description']}}></p>
+                  </div>
+                  :<div></div>
+                }
               </div>
             }
             center={
               <div>
-                <i className="mdi mdi-code-braces mdi-48px"></i>
-                <h4 className="condensed light">Experience</h4>
-                <p className="condensed light">
-                  I have experience in many programming language and many framework since 2014 such as Java , Python , C# , Prolog , C++ , Javascript , Android , React , Django , Cocos2d-X , ETC.
-                </p>
+                {this.state.good_thing?
+                  <div>
+                    <i className={"mdi "+this.state.good_thing[1]['icon']+" mdi-48px"}></i>
+                    <h4 className="condensed light">{this.state.good_thing[1]['title']}</h4>
+                    <p className="condensed" dangerouslySetInnerHTML={{__html:this.state.good_thing[1]['description']}}></p>
+                  </div>
+                  :<div></div>
+                }
               </div>
             }
             right={
               <div>
-                <i className="mdi mdi-book-open-page-variant mdi-48px"></i>
-                <h4 className="condensed light">Learner</h4>
-                <p className="condensed light">
-                  I love to learn new thing or the thing that I didn't know before from content or course like Udemy or Codeacademy by doing it.
-                </p>
+                {this.state.good_thing?
+                  <div>
+                    <i className={"mdi "+this.state.good_thing[2]['icon']+" mdi-48px"}></i>
+                    <h4 className="condensed light">{this.state.good_thing[2]['title']}</h4>
+                    <p className="condensed" dangerouslySetInnerHTML={{__html:this.state.good_thing[2]['description']}}></p>
+                  </div>
+                  :<div></div>
+                }
               </div>
             }
           />
