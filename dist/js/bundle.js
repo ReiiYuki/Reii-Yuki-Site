@@ -31008,7 +31008,7 @@
 	          _util.ParallaxSession,
 	          {
 	            id: 'intro',
-	            img: 'dist/medias/images/dummy1.png',
+	            img: 'dist/medias/images/skill-bg.jpg',
 	            height: '1000px'
 	          },
 	          _react2.default.createElement(
