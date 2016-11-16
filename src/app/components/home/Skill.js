@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import {Row,Col} from 'react-materialize'
 import {ParallaxSession,HalfCircleProgressItem} from '../../util'
 
 export default class Home extends Component {
@@ -14,8 +13,8 @@ export default class Home extends Component {
           <div className="white-text">
             <h1 className="condensed light">Skill</h1>
             <h3 className="condensed light">Communicating Skill</h3>
-            <Row >
-              <Col m={3}>
+            <div className="row">
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "thai"
                   textColor="orange-text"
@@ -24,8 +23,8 @@ export default class Home extends Component {
                   rank="Native"
                   value={0.9}
                 />
-              </Col>
-              <Col m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "english"
                   textColor="light-blue-text"
@@ -34,8 +33,8 @@ export default class Home extends Component {
                   rank="Intermediate"
                   value={0.65}
                 />
-              </Col>
-              <Col m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "japanese"
                   textColor=" red-text"
@@ -44,11 +43,11 @@ export default class Home extends Component {
                   rank="Elementary"
                   value={0.05}
                 />
-              </Col>
-            </Row>
+              </div>
+            </div>
             <h3 className="condensed light">Programming Skill</h3>
-            <Row>
-              <Col m={3}>
+            <div className="row">
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "java"
                   textColor="red-text"
@@ -57,8 +56,8 @@ export default class Home extends Component {
                   rank="Familiar"
                   value={0.7}
                 />
-              </Col>
-              <Col m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "python"
                   textColor="amber-text"
@@ -67,8 +66,8 @@ export default class Home extends Component {
                   rank="Familiar"
                   value={0.85}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "android"
                   textColor=" green-text"
@@ -77,8 +76,8 @@ export default class Home extends Component {
                   rank="Average"
                   value={0.65}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "react"
                   textColor=" blue-text"
@@ -87,8 +86,8 @@ export default class Home extends Component {
                   rank="Familiar"
                   value={0.75}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "cocos"
                   textColor=" blue-text"
@@ -97,8 +96,8 @@ export default class Home extends Component {
                   rank="Rarely"
                   value={0.3}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "django"
                   textColor=" amber-text"
@@ -107,8 +106,8 @@ export default class Home extends Component {
                   rank="Average"
                   value={0.5}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "node"
                   textColor="light-green-text accent-3"
@@ -117,8 +116,8 @@ export default class Home extends Component {
                   rank="Rarely"
                   value={0.4}
                 />
-              </Col>
-              <Col  m={3}>
+              </div>
+              <div className="col s3">
                 <HalfCircleProgressItem
                   id = "unity"
                   textColor=" blue-text"
@@ -127,12 +126,12 @@ export default class Home extends Component {
                   rank="Elementary"
                   value={0.2}
                 />
-              </Col>
-            </Row>
-            <Row>
+              </div>
+            </div>
+            <div className="row">
               <h4 className="condensed light">Other Developing Skill</h4>
               <p className="condensed light">Object-Oreinted Programming, Team Development, SQL, Design Pattern, Component-Thinking</p>
-            </Row>
+            </div>
           </div>
         </ParallaxSession>
       </div>
