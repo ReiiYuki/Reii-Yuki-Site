@@ -12,7 +12,7 @@ module.exports = {
   output: {
     publicPath: "/dist/js/",
     path: path.join(__dirname, "dist/js"),
-    filename: "bundle.js"
+    filename: "bundle.js",
   },
   module: {
     loaders:[
@@ -23,10 +23,14 @@ module.exports = {
       { test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=application/octet-stream" },
       { test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: "url?limit=10000&mimetype=image/svg+xml" },
       { test: /\.json$/, loader: 'json-loader'},
-      {test: /\.scss$/,loaders: ['style', 'css', 'sass','postcss']}
+      {test: /\.scss$/,loaders: ['style', 'css', 'sass','postcss']},
+      {
+        test: /\.node$/,
+        loader: "node-loader"
+      }
     ]
   },
   postcss:function () {
     return [autoprefixer];
-  }
+  },
 }

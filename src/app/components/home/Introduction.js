@@ -1,6 +1,20 @@
 import React, { Component } from 'react'
 import {ParallaxSession,TriSection} from '../../util'
+import {readDB} from '../../connector/mongodb'
 export default class Home extends Component {
+  constructor(props){
+    super(props)
+    this.state = {}
+  }
+  readDataFromDB(){
+    readDB('personal_infomation',this.setUserState,this)
+  }
+  setUserState(self,data){
+    self.setState(data[0])
+  }
+  componentDidMount(){
+    this.readDataFromDB()
+  }
   render(){
     return (
       <div id="intro">
@@ -12,10 +26,10 @@ export default class Home extends Component {
           >
             <div className="white-text">
               <h3 className="condensed light">Hello Visitor!</h3>
-              <h1 className="condensed"><span className="light">I'm </span>Reii Yuki</h1>
-              <h6 className="condensed light">( Voraton Lertrattanapaisal )</h6>
+              <h1 className="condensed"><span className="light">I'm </span>{this.state.name}</h1>
+              <h6 className="condensed light">( {this.state.real_name} )</h6>
               <h5 className="condensed light">
-                3rd year Software and Knowledge Engineering Student <span className="light-green-text">@Kasetsart University</span>
+                {this.state.position} <span className={this.state.label}>@{this.state.workplace}</span>
               </h5>
               <h5 className="condensed light">I interest in Game Development, Web Development, Artificial Intelligent and Android Development</h5>
             </div>
