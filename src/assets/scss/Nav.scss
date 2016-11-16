@@ -2,3 +2,12 @@
   position: fixed;
   z-index: 999;
 }
+.inline-ul {
+  display: table;
+  width: 100%;
+  text-align: center;
+}
+.inline{
+  display: table-cell;
+  display: inline;
+}

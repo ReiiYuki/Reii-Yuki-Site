@@ -15,7 +15,7 @@ export default class Home extends Component {
               <h1 className="condensed"><span className="light">I'm </span>Reii Yuki</h1>
               <h6 className="condensed light">( Voraton Lertrattanapaisal )</h6>
               <h5 className="condensed light">
-                3yr Software and Knowledge Engineering Student <span className="light-green-text">@Kasetsart University</span>
+                3rd year Software and Knowledge Engineering Student <span className="light-green-text">@Kasetsart University</span>
               </h5>
               <h5 className="condensed light">I interest in Game Development, Web Development, Artificial Intelligent and Android Development</h5>
             </div>

@@ -46,7 +46,7 @@ export default class Home extends Component {
                 />
               </Col>
             </Row>
-            <h3 className="condensed light">Developing Skill</h3>
+            <h3 className="condensed light">Programming Skill</h3>
             <Row>
               <Col m={3}>
                 <HalfCircleProgressItem
@@ -128,6 +128,10 @@ export default class Home extends Component {
                   value={0.2}
                 />
               </Col>
+            </Row>
+            <Row>
+              <h4 className="condensed light">Other Developing Skill</h4>
+              <p className="condensed light">Object-Oreinted Programming, Team Development, SQL, Design Pattern, Component-Thinking</p>
             </Row>
           </div>
         </ParallaxSession>

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import {Introduction,Skill,Project} from './'
+import {Introduction,Skill,Project,Info} from './'
 export default class Home extends Component {
   render() {
     return (
@@ -7,6 +7,7 @@ export default class Home extends Component {
         <Introduction/>
         <Skill/>
         <Project/>
+        <Info/>
       </div>
     )
   }
