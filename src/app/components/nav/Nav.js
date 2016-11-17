@@ -1,26 +1,18 @@
 import React, { Component } from 'react'
-import {readDB} from '../../connector/mongodb'
+import {queryFromFireBase} from '../../connector/Firebase'
 import '../../../assets/scss/Nav.scss'
 export default class Nav extends Component {
   constructor(props){
     super(props)
     this.state = {}
   }
-  readDataFromDB(){
-    readDB('contact_infomation',this.setContactState,this)
-  }
-  setContactState(self,data){
-    let info = data[0]
+  setFireContact(self,data){
     self.setState({
-      github:info['github'],
-      facebook:info['facebook'],
-      email:info['email'],
-      twitter:info['twitter'],
-      phone_number:info['phone_number']
+      contacts : data
     })
   }
   componentDidMount(){
-    this.readDataFromDB()
+    queryFromFireBase(this,'contact_infomation',this.setFireContact)
     $(".button-collapse").sideNav()
   }
   onClick(){
@@ -33,10 +25,13 @@ export default class Nav extends Component {
           <a href="#" data-activates="mobile-nav" className="button-collapse"><i className="material-icons">menu</i></a>
           <ul className="hide-on-med-and-down">
             <div className="left">
-              <li><a href={this.state.facebook}><i className="mdi mdi-facebook-box mdi-32px"></i></a></li>
-              <li><a href={this.state.github}><i className="mdi mdi-github-circle mdi-32px"></i></a></li>
-              <li><a href={this.state.twitter}><i className="mdi mdi-twitter mdi-32px"></i></a></li>
-              <li><a href={"mailto:"+this.state.email}><i className="mdi mdi-gmail mdi-32px"></i></a></li>
+              {
+                this.state.contacts?
+                this.state.contacts.map((contact)=>(
+                  <li key={"nav-"+this.state.contacts.indexOf(contact)}><a href={contact.destination}><i className={"mdi "+contact.icon+" mdi-32px"}></i></a></li>
+                ))
+                :<div></div>
+              }
             </div>
             <div className="right">
               <li><a href="#intro">Intro</a></li>
@@ -48,10 +43,13 @@ export default class Nav extends Component {
           <ul className="side-nav  light-blue darken-4" id="mobile-nav">
             <li >
               <ul className="row center inline-ul">
-                <li className="inline"><a href={this.state.facebook}><i className="mdi mdi-facebook-box  mdi-light mdi-32px"></i></a></li>
-                <li className="inline"><a href={this.state.github}><i className="mdi mdi-github-circle mdi-light mdi-32px"></i></a></li>
-                <li className="inline"><a href={this.state.twitter}><i className="mdi mdi-twitter mdi-light  mdi-32px"></i></a></li>
-                <li className="inline"><a href={"mailto:"+this.state.email}><i className="mdi mdi-gmail  mdi-light  mdi-32px"></i></a></li>
+                {
+                  this.state.contacts?
+                  this.state.contacts.map((contact)=>(
+                    <li key={"nav-"+this.state.contacts.indexOf(contact)}><a href={contact.destination}><i className={"mdi "+contact.icon+" mdi-32px"}></i></a></li>
+                  ))
+                  :<div></div>
+                }
               </ul>
             </li>
             <li><a className="white-text" href="#intro" onClick={()=>this.onClick()}>Intro</a></li>
@@ -61,6 +59,6 @@ export default class Nav extends Component {
           </ul>
         </div>
       </nav>
-    )
-  }
+)
+}
 }
